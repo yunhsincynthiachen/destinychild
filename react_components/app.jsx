@@ -21,9 +21,17 @@ var DestinyChildBox = React.createClass({
 
             case DisplayEnum.DISPLAY_HOME:
                 page = (
-                    <div>
+                  <div>
+                    <div className="col-md-4">
                       <p>Hello</p>
                     </div>
+                    <div className="col-md-4">
+                      <p>Bye</p>
+                    </div>
+                    <div className="col-md-4">
+                      <p>Yup</p>
+                    </div>
+                  </div>
                 );
                 break;
 

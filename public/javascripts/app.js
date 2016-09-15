@@ -19147,9 +19147,17 @@ var DestinyChildBox = React.createClass({displayName: "DestinyChildBox",
 
             case DisplayEnum.DISPLAY_HOME:
                 page = (
-                    React.createElement("div", null, 
+                  React.createElement("div", null, 
+                    React.createElement("div", {className: "col-md-4"}, 
                       React.createElement("p", null, "Hello")
+                    ), 
+                    React.createElement("div", {className: "col-md-4"}, 
+                      React.createElement("p", null, "Bye")
+                    ), 
+                    React.createElement("div", {className: "col-md-4"}, 
+                      React.createElement("p", null, "Yup")
                     )
+                  )
                 );
                 break;
 
