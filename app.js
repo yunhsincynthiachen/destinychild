@@ -28,7 +28,6 @@ var index = require('./routes/index');
 //   }
 // ));
 
-// Connect to database
 // mongoose.connect('mongodb://olinjs:catalyst@ds025239.mlab.com:25239/catalyst');
 // var connection = mongoose.connection;
 // connection.on('error', console.error.bind(console, 'connection error:'));
