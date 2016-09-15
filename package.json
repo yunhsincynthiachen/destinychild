@@ -34,10 +34,15 @@
     "node-dir": "^0.1.11",
     "nodemon": "^1.9.1",
     "path": "^0.12.7",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-motion": "^0.4.2",
-    "react-search": "^1.0.9",
-    "serve-favicon": "~2.3.0"
-  }
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-motion": "^0.4.4",
+    "react-search": "^1.0.10",
+    "serve-favicon": "~2.3.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "main": "app.js"
 }

@@ -1,9 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Resources = require('./resources.jsx');
 
 var DisplayEnum = Object.freeze({
     DISPLAY_HOME: 0
 });
+
 
 var DestinyChildBox = React.createClass({
 
@@ -22,15 +24,10 @@ var DestinyChildBox = React.createClass({
             case DisplayEnum.DISPLAY_HOME:
                 page = (
                   <div>
-                    <div className="col-md-4">
-                      <p>Hello</p>
+                    <div className="row">
+                    <h1>Destiny's Child</h1>
                     </div>
-                    <div className="col-md-4">
-                      <p>Bye</p>
-                    </div>
-                    <div className="col-md-4">
-                      <p>Yup</p>
-                    </div>
+                    <Resources metadata={[]} resources={[]}/>
                   </div>
                 );
                 break;

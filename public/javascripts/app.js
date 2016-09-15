@@ -19126,10 +19126,12 @@ module.exports = require('./lib/React');
 },{"./lib/React":53}],159:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Resources = require('./resources.jsx');
 
 var DisplayEnum = Object.freeze({
     DISPLAY_HOME: 0
 });
+
 
 var DestinyChildBox = React.createClass({displayName: "DestinyChildBox",
 
@@ -19148,15 +19150,10 @@ var DestinyChildBox = React.createClass({displayName: "DestinyChildBox",
             case DisplayEnum.DISPLAY_HOME:
                 page = (
                   React.createElement("div", null, 
-                    React.createElement("div", {className: "col-md-4"}, 
-                      React.createElement("p", null, "Hello")
+                    React.createElement("div", {className: "row"}, 
+                    React.createElement("h1", null, "Destiny's Child")
                     ), 
-                    React.createElement("div", {className: "col-md-4"}, 
-                      React.createElement("p", null, "Bye")
-                    ), 
-                    React.createElement("div", {className: "col-md-4"}, 
-                      React.createElement("p", null, "Yup")
-                    )
+                    React.createElement(Resources, {metadata: [], resources: []})
                   )
                 );
                 break;
@@ -19176,4 +19173,27 @@ ReactDOM.render(
   document.getElementById('content')
 );
 
+},{"./resources.jsx":160,"react":158,"react-dom":29}],160:[function(require,module,exports){
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var Resources = React.createClass({displayName: "Resources",
+	render: function() {
+		return (
+			React.createElement("div", null, 
+				React.createElement("div", {className: "col-md-4"}, 
+		          React.createElement("p", null, "Hello")
+		        ), 
+		        React.createElement("div", {className: "col-md-4"}, 
+		          React.createElement("p", null, "Bye")
+		        ), 
+		        React.createElement("div", {className: "col-md-4"}, 
+		          React.createElement("p", null, "Yup")
+		        )
+            )
+		)
+	}
+})
+
+module.exports = Resources;
 },{"react":158,"react-dom":29}]},{},[159]);
