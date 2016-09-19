@@ -10,6 +10,7 @@ var session = require('express-session');
 //setting up our routes
 var index = require('./routes/index');
 var resources = require('./routes/resources');
+var metadata = require('./routes/metadata');
 
 mongoose.connect('mongodb://destinychilddatabase:cyndorue@ds035766.mlab.com:35766/destinychild');
 var connection = mongoose.connection;
