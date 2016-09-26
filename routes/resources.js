@@ -9,7 +9,17 @@ router.get('/allResources', function(req, res){
 		if (err){
 			console.log("Error: ", err);
 		} else {
-			res.json(resources);
+			Metadata.find({}, null, {sort: {name: -1}}).exec(function (err, metadata){
+				if (err){
+					console.log("Error: ", err);
+				} else {
+					console.log(metadata);
+					res.json({
+						metadata: metadata,
+						resources: resources
+					});
+				}
+			});
 		}
 	});
 });
@@ -72,7 +82,16 @@ router.post('/postResource', function(req, res){
 											Metadata.update({ "metadataType": "type" },{ "$addToSet": { "metadataList": elem}},function(err, list) {
 												if (err) console.log("Error: " + err);
 												if (i == listTypes.length-1) {
-													res.json({ "hello": "world"});
+													Metadata.find({}, null, {sort: {name: -1}}).exec(function (err, metadata){
+														if (err){
+															console.log("Error: ", err);
+														} else {
+															res.json({
+																metadata: metadata,
+																resource: resource
+															});
+														}
+													});
 												}
 											});
 										});

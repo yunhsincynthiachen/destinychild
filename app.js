@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes for Our Backend Models
 app.use('/', index);  //renders our handlebars template index.hbs
 app.use('/api/resources', resources);
+app.use('/api/metadata', metadata);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -19136,38 +19136,64 @@ var DestinyChildBox = React.createClass({displayName: "DestinyChildBox",
     getInitialState: function() {
         return {
             display: DisplayEnum.DISPLAY_HOME,
+            resources: [],
+            metadata: []
         };
     },
 
+    componentDidMount: function() {
+        //Calls login to facebook as soon as component is mounting
+        this.getResourcesPlusMetadata();
+        return null;
+    },
+
+    getResourcesPlusMetadata: function() {
+      $.ajax({
+          url: '/api/resources/allResources',
+          dataType: 'json',
+          type: 'GET',
+          success: function(resourceAndMetadataItems){
+              this.setState({
+                resources: resourceAndMetadataItems['resources'],
+                metadata: resourceAndMetadataItems['metadata']
+              });
+
+          }.bind(this),
+          error: function(xhr, status, err){
+              console.log("cannot get resources, '/api/resources/allResources'", status, err.toString());
+          }.bind(this)
+      })
+    },
+
     render: function() {
-        var page;
+      var page;
+      console.log(this.state);
+      // Decide whether to show login page, tinder news wheel, or dashboard
+      switch (this.state.display) {
 
-        // Decide whether to show login page, tinder news wheel, or dashboard
-        switch (this.state.display) {
-
-            case DisplayEnum.DISPLAY_HOME:
-                page = (
-                  React.createElement("div", null, 
-                    React.createElement("div", {className: "col-md-4"}, 
-                      React.createElement("p", null, "Hello")
-                    ), 
-                    React.createElement("div", {className: "col-md-4"}, 
-                      React.createElement("p", null, "Bye")
-                    ), 
-                    React.createElement("div", {className: "col-md-4"}, 
-                      React.createElement("p", null, "Yup")
-                    )
+          case DisplayEnum.DISPLAY_HOME:
+              page = (
+                React.createElement("div", null, 
+                  React.createElement("div", {className: "col-md-4"}, 
+                    React.createElement("p", null, "Hello")
+                  ), 
+                  React.createElement("div", {className: "col-md-4"}, 
+                    React.createElement("p", null, "Bye")
+                  ), 
+                  React.createElement("div", {className: "col-md-4"}, 
+                    React.createElement("p", null, "Yup")
                   )
-                );
-                break;
+                )
+              );
+              break;
 
-        }
+      }
 
-        return (
-            React.createElement("div", null, 
-        page
-            )
-        );
+      return (
+          React.createElement("div", null, 
+      page
+          )
+      );
     }
 });
 
