@@ -11,7 +11,7 @@ var Resources = React.createClass({
 	        </div>
 		})
 		return mainColumns;
-	}
+	},
 
 	renderLevel: function(levels, subject) {
 		var levelTitles = levels.map(function(result, i) {
@@ -20,12 +20,11 @@ var Resources = React.createClass({
 		})
 
 		return levelTitles;
-
-	}
+	},
 
 	renderResources: function(level, subject) {
 		var elem = _.filter(this.props.resources, function(e) {
-			return (e.level === level && e.subject === subject) {
+			return (e.level === level && e.subject === subject)
 		});
 
 		return _.map(elem, function(e) {
@@ -35,22 +34,21 @@ var Resources = React.createClass({
 				</a>
 			);
 		})
-	}
+	},
 
 
 
 	render: function() {
-
+		console.log(this.props.metadata);
+		console.log(this.props.resources);
 
 		return (
 			<div>
-
-
 				<div className="col-md-4">
 		          <p>Hello</p>
 		        </div>
 		        <div className="col-md-4">
-		          <p>Bye</p>
+		          <p>Byebye</p>
 		        </div>
 		        <div className="col-md-4">
 		          <p>Yup</p>
